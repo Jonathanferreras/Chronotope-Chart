@@ -51,7 +51,10 @@ An example of how the visualization should be rendered can be seen in the `chron
 - The example renders each data point with transparency to highlight multiple occurrencces at the same time by different users.
 - The example does not include the informational "tooltip" when clicking on a data point.
 
+![chronotope_example.png](chronotope_example.png)
+
 A simpler example that contains only everything you need to do for the exercise can be found in `chronotope_example2.png`.
+![chronotope_example2.png](chronotope_example2.png)
 
 ## Restrictions
 
