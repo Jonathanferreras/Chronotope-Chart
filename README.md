@@ -4,7 +4,7 @@ The goal of this exercise is to test your front-end chops and validate your abil
 
 This repository contains a barebones application that was scaffolded by Create React App.
 
-To start the project, run the following:
+To start the project, run the following (**Note that you will need Node and NPM installed for this to work**):
 
 ```sh
 # Install app dependencies
