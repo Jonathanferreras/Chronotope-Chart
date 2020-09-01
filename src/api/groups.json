@@ -1,0 +1,102 @@
+[
+  {
+    "id": 754,
+    "group_no": 8,
+    "name": "SM Mktg|Celebrity",
+    "description": "",
+    "position": 8,
+    "hex_color": "1b0088",
+    "num_clusters": 5,
+    "num_nodes": 1251
+  },
+  {
+    "id": 755,
+    "group_no": 9,
+    "name": "Northeast Craft Beer",
+    "description": "craft beer people from NE US",
+    "position": 0,
+    "hex_color": "00194d",
+    "num_clusters": 8,
+    "num_nodes": 1988
+  },
+  {
+    "id": 756,
+    "group_no": 10,
+    "name": "International Beer",
+    "description": "",
+    "position": 3,
+    "hex_color": "c46686",
+    "num_clusters": 5,
+    "num_nodes": 1131
+  },
+  {
+    "id": 757,
+    "group_no": 11,
+    "name": "Boston",
+    "description": "",
+    "position": 7,
+    "hex_color": "c12358",
+    "num_clusters": 8,
+    "num_nodes": 1944
+  },
+  {
+    "id": 758,
+    "group_no": 12,
+    "name": "Maine",
+    "description": "",
+    "position": 5,
+    "hex_color": "6d5200",
+    "num_clusters": 4,
+    "num_nodes": 1058
+  },
+  {
+    "id": 759,
+    "group_no": 13,
+    "name": "West|Midwest Beer",
+    "description": "",
+    "position": 1,
+    "hex_color": "714990",
+    "num_clusters": 7,
+    "num_nodes": 1473
+  },
+  {
+    "id": 760,
+    "group_no": 14,
+    "name": "New England",
+    "description": "",
+    "position": 6,
+    "hex_color": "325c09",
+    "num_clusters": 4,
+    "num_nodes": 966
+  },
+  {
+    "id": 761,
+    "group_no": 15,
+    "name": "Southern Craft Beer",
+    "description": "",
+    "position": 2,
+    "hex_color": "904b00",
+    "num_clusters": 5,
+    "num_nodes": 843
+  },
+  {
+    "id": 762,
+    "group_no": 16,
+    "name": "Craft Beer",
+    "description": "",
+    "position": 4,
+    "hex_color": "83dfff",
+    "num_clusters": 4,
+    "num_nodes": 1284
+  },
+  {
+    "id": 763,
+    "group_no": 17,
+    "name": "Other",
+    "description": "",
+    "position": 9,
+    "hex_color": "ffaedd",
+    "num_clusters": 5,
+    "num_nodes": 838
+  }
+]

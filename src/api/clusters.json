@@ -1,0 +1,497 @@
+[
+  {
+    "id": 4733,
+    "cluster_no": 0,
+    "group_no": 17,
+    "name": "Unclustered",
+    "position": 50,
+    "hex_color": "634e5a",
+    "num_nodes": 71
+  },
+  {
+    "id": 4732,
+    "cluster_no": 1,
+    "group_no": 13,
+    "name": "IN|OH|MI Craft Beer",
+    "position": 17,
+    "hex_color": "e0b7ff",
+    "num_nodes": 500
+  },
+  {
+    "id": 4735,
+    "cluster_no": 2,
+    "group_no": 15,
+    "name": "NC Craft Beer",
+    "position": 39,
+    "hex_color": "e1a35d",
+    "num_nodes": 239
+  },
+  {
+    "id": 4734,
+    "cluster_no": 3,
+    "group_no": 16,
+    "name": "Brewing|Home Brew",
+    "position": 45,
+    "hex_color": "6fceee",
+    "num_nodes": 358
+  },
+  {
+    "id": 4737,
+    "cluster_no": 4,
+    "group_no": 10,
+    "name": "UK Craft Beer",
+    "position": 11,
+    "hex_color": "ff518c",
+    "num_nodes": 443
+  },
+  {
+    "id": 4736,
+    "cluster_no": 5,
+    "group_no": 8,
+    "name": "SMM Health|Tech",
+    "position": 54,
+    "hex_color": "4826d0",
+    "num_nodes": 295
+  },
+  {
+    "id": 4739,
+    "cluster_no": 6,
+    "group_no": 8,
+    "name": "SMM Motivation",
+    "position": 52,
+    "hex_color": "8e80c3",
+    "num_nodes": 271
+  },
+  {
+    "id": 4738,
+    "cluster_no": 7,
+    "group_no": 16,
+    "name": "Craft Beer Enthusiast",
+    "position": 43,
+    "hex_color": "00abe5",
+    "num_nodes": 340
+  },
+  {
+    "id": 4741,
+    "cluster_no": 8,
+    "group_no": 13,
+    "name": "Colorado Craft Beer",
+    "position": 15,
+    "hex_color": "43106a",
+    "num_nodes": 136
+  },
+  {
+    "id": 4740,
+    "cluster_no": 9,
+    "group_no": 17,
+    "name": "Cocktail|Food",
+    "position": 49,
+    "hex_color": "ffaedd",
+    "num_nodes": 301
+  },
+  {
+    "id": 4745,
+    "cluster_no": 10,
+    "group_no": 13,
+    "name": "SF Cali Craft Beer",
+    "position": 13,
+    "hex_color": "4b2667",
+    "num_nodes": 128
+  },
+  {
+    "id": 4744,
+    "cluster_no": 11,
+    "group_no": 16,
+    "name": "Craft Beer News|Event",
+    "position": 44,
+    "hex_color": "83dfff",
+    "num_nodes": 389
+  },
+  {
+    "id": 4743,
+    "cluster_no": 12,
+    "group_no": 9,
+    "name": "Craft Beer NJ|CT|MO",
+    "position": 3,
+    "hex_color": "b8cfff",
+    "num_nodes": 564
+  },
+  {
+    "id": 4742,
+    "cluster_no": 13,
+    "group_no": 8,
+    "name": "SMM Mix",
+    "position": 51,
+    "hex_color": "1b0088",
+    "num_nodes": 161
+  },
+  {
+    "id": 4749,
+    "cluster_no": 14,
+    "group_no": 13,
+    "name": "PortlandOR Craft Beer",
+    "position": 19,
+    "hex_color": "4d1d72",
+    "num_nodes": 155
+  },
+  {
+    "id": 4748,
+    "cluster_no": 15,
+    "group_no": 13,
+    "name": "Chicago Craft Beer",
+    "position": 18,
+    "hex_color": "63308a",
+    "num_nodes": 214
+  },
+  {
+    "id": 4751,
+    "cluster_no": 16,
+    "group_no": 9,
+    "name": "Boston Food|Beer",
+    "position": 1,
+    "hex_color": "384868",
+    "num_nodes": 147
+  },
+  {
+    "id": 4750,
+    "cluster_no": 17,
+    "group_no": 12,
+    "name": "Portland ME Local",
+    "position": 22,
+    "hex_color": "f5ca46",
+    "num_nodes": 361
+  },
+  {
+    "id": 4753,
+    "cluster_no": 18,
+    "group_no": 12,
+    "name": "Maine Food|Local",
+    "position": 20,
+    "hex_color": "ffdc72",
+    "num_nodes": 378
+  },
+  {
+    "id": 4752,
+    "cluster_no": 19,
+    "group_no": 13,
+    "name": "San Diego Craft Beer",
+    "position": 14,
+    "hex_color": "714990",
+    "num_nodes": 228
+  },
+  {
+    "id": 4720,
+    "cluster_no": 20,
+    "group_no": 8,
+    "name": "SMM",
+    "position": 53,
+    "hex_color": "a58eff",
+    "num_nodes": 382
+  },
+  {
+    "id": 4721,
+    "cluster_no": 21,
+    "group_no": 17,
+    "name": "Organic|Sustain Food",
+    "position": 47,
+    "hex_color": "8f155d",
+    "num_nodes": 136
+  },
+  {
+    "id": 4722,
+    "cluster_no": 22,
+    "group_no": 14,
+    "name": "Portsmouth NH Local",
+    "position": 27,
+    "hex_color": "91d64e",
+    "num_nodes": 266
+  },
+  {
+    "id": 4755,
+    "cluster_no": 23,
+    "group_no": 12,
+    "name": "Portland ME Local 2",
+    "position": 23,
+    "hex_color": "a48f4e",
+    "num_nodes": 211
+  },
+  {
+    "id": 4716,
+    "cluster_no": 24,
+    "group_no": 9,
+    "name": "Portland ME Beer|Food",
+    "position": 6,
+    "hex_color": "213b70",
+    "num_nodes": 169
+  },
+  {
+    "id": 4717,
+    "cluster_no": 25,
+    "group_no": 9,
+    "name": "Philly PA Craft Beer",
+    "position": 7,
+    "hex_color": "193979",
+    "num_nodes": 195
+  },
+  {
+    "id": 4718,
+    "cluster_no": 26,
+    "group_no": 11,
+    "name": "Boston Lfstyle|Food",
+    "position": 28,
+    "hex_color": "c02559",
+    "num_nodes": 236
+  },
+  {
+    "id": 4719,
+    "cluster_no": 27,
+    "group_no": 11,
+    "name": "Boston Lfstyle|Food 2",
+    "position": 29,
+    "hex_color": "b95b7a",
+    "num_nodes": 225
+  },
+  {
+    "id": 4711,
+    "cluster_no": 28,
+    "group_no": 9,
+    "name": "Massachussets Craft Beer",
+    "position": 0,
+    "hex_color": "5f7fc0",
+    "num_nodes": 392
+  },
+  {
+    "id": 4713,
+    "cluster_no": 29,
+    "group_no": 10,
+    "name": "Aus|Ireland Craft Beer",
+    "position": 9,
+    "hex_color": "6e3b4c",
+    "num_nodes": 130
+  },
+  {
+    "id": 4709,
+    "cluster_no": 30,
+    "group_no": 17,
+    "name": "Wine",
+    "position": 46,
+    "hex_color": "620039",
+    "num_nodes": 70
+  },
+  {
+    "id": 4754,
+    "cluster_no": 31,
+    "group_no": 14,
+    "name": "Vermont Local",
+    "position": 24,
+    "hex_color": "74eb00",
+    "num_nodes": 301
+  },
+  {
+    "id": 4762,
+    "cluster_no": 32,
+    "group_no": 11,
+    "name": "Boston Foodies",
+    "position": 30,
+    "hex_color": "c12358",
+    "num_nodes": 239
+  },
+  {
+    "id": 4760,
+    "cluster_no": 33,
+    "group_no": 9,
+    "name": "Pittsburgh Craft Beer",
+    "position": 2,
+    "hex_color": "00194d",
+    "num_nodes": 74
+  },
+  {
+    "id": 4715,
+    "cluster_no": 34,
+    "group_no": 11,
+    "name": "Boston News|Polit",
+    "position": 35,
+    "hex_color": "fc71a0",
+    "num_nodes": 337
+  },
+  {
+    "id": 4714,
+    "cluster_no": 35,
+    "group_no": 11,
+    "name": "Celeb|Boston Focus",
+    "position": 33,
+    "hex_color": "c48097",
+    "num_nodes": 244
+  },
+  {
+    "id": 4757,
+    "cluster_no": 36,
+    "group_no": 10,
+    "name": "Intl Craft Beer",
+    "position": 12,
+    "hex_color": "c46686",
+    "num_nodes": 317
+  },
+  {
+    "id": 4761,
+    "cluster_no": 37,
+    "group_no": 15,
+    "name": "Florida Craft Beer",
+    "position": 37,
+    "hex_color": "6f4619",
+    "num_nodes": 83
+  },
+  {
+    "id": 4747,
+    "cluster_no": 38,
+    "group_no": 11,
+    "name": "Boston Foodies 2",
+    "position": 31,
+    "hex_color": "ff0055",
+    "num_nodes": 341
+  },
+  {
+    "id": 4746,
+    "cluster_no": 39,
+    "group_no": 9,
+    "name": "NYC Craft Beer",
+    "position": 5,
+    "hex_color": "2c4a88",
+    "num_nodes": 236
+  },
+  {
+    "id": 4730,
+    "cluster_no": 40,
+    "group_no": 15,
+    "name": "DC|VA|MD Craft Beer",
+    "position": 41,
+    "hex_color": "ffba6e",
+    "num_nodes": 279
+  },
+  {
+    "id": 4731,
+    "cluster_no": 41,
+    "group_no": 17,
+    "name": "NY Foodie",
+    "position": 48,
+    "hex_color": "e362ae",
+    "num_nodes": 260
+  },
+  {
+    "id": 4728,
+    "cluster_no": 42,
+    "group_no": 11,
+    "name": "Boston Tech|Startup",
+    "position": 34,
+    "hex_color": "a31042",
+    "num_nodes": 188
+  },
+  {
+    "id": 4729,
+    "cluster_no": 43,
+    "group_no": 10,
+    "name": "Vancouver Craft Beer",
+    "position": 10,
+    "hex_color": "6c102f",
+    "num_nodes": 125
+  },
+  {
+    "id": 4726,
+    "cluster_no": 44,
+    "group_no": 9,
+    "name": "VT Food|Beer",
+    "position": 4,
+    "hex_color": "3e547f",
+    "num_nodes": 211
+  },
+  {
+    "id": 4727,
+    "cluster_no": 45,
+    "group_no": 10,
+    "name": "Ontario Craft Beer",
+    "position": 8,
+    "hex_color": "680023",
+    "num_nodes": 116
+  },
+  {
+    "id": 4724,
+    "cluster_no": 46,
+    "group_no": 15,
+    "name": "Atlanta Craft Beer",
+    "position": 40,
+    "hex_color": "864805",
+    "num_nodes": 114
+  },
+  {
+    "id": 4725,
+    "cluster_no": 47,
+    "group_no": 16,
+    "name": "Local Breweries",
+    "position": 42,
+    "hex_color": "5c8a9a",
+    "num_nodes": 197
+  },
+  {
+    "id": 4712,
+    "cluster_no": 48,
+    "group_no": 14,
+    "name": "NH Culture|Politics",
+    "position": 25,
+    "hex_color": "9cff3c",
+    "num_nodes": 332
+  },
+  {
+    "id": 4723,
+    "cluster_no": 49,
+    "group_no": 13,
+    "name": "MN Craft Beer",
+    "position": 16,
+    "hex_color": "370060",
+    "num_nodes": 112
+  },
+  {
+    "id": 4763,
+    "cluster_no": 50,
+    "group_no": 15,
+    "name": "TX Craft Beer",
+    "position": 38,
+    "hex_color": "904b00",
+    "num_nodes": 128
+  },
+  {
+    "id": 4756,
+    "cluster_no": 51,
+    "group_no": 12,
+    "name": "Bangor ME Local",
+    "position": 21,
+    "hex_color": "6d5200",
+    "num_nodes": 108
+  },
+  {
+    "id": 4759,
+    "cluster_no": 52,
+    "group_no": 11,
+    "name": "Boston News|Sports",
+    "position": 32,
+    "hex_color": "833d54",
+    "num_nodes": 134
+  },
+  {
+    "id": 4758,
+    "cluster_no": 53,
+    "group_no": 14,
+    "name": "New England Tourism",
+    "position": 26,
+    "hex_color": "325c09",
+    "num_nodes": 67
+  },
+  {
+    "id": 4710,
+    "cluster_no": 54,
+    "group_no": 8,
+    "name": "SMM Strategy",
+    "position": 36,
+    "hex_color": "301d7e",
+    "num_nodes": 142
+  }
+]
