@@ -43,7 +43,7 @@ The business requirements for this exercise is to have the React application ren
   - When the occurrence happened
   - The name of the cluster in which it happened, this text should be colored by the cluster's `hex_color`.
   - The name of the group in which it happened, this text should be colored by the group's `hex_color`.
-- You are free to write tests for this project but they are _not_ necessary.
+- You are free to write tests for this project but they are _not_ necessary. CRA equips this repository with a Jest test runner.
 
 An example of how the visualization should be rendered can be seen in the `chronotope_example.png` file that came with this document. Some notes about the example that is not a requirement in this exercise:
 
@@ -59,7 +59,8 @@ A simpler example that contains only everything you need to do for the exercise 
 ## Restrictions
 
 - You should only spend a max of 2 hours working on this.
-- You may not modify any code within `src/api`.
+- You may not modify any code within `src/api`, or `src/index.js`.
+- You are free to modify existing or create any new (S)CSS files for styling purposes.
 
 ## Internal Notes
 
