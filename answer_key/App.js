@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react";
 import * as api from "./api";
 import "./App.scss";
-import "./Answer.scss";
 
 function computeRelativeDistance(minDate, maxDate, hitTime) {
   [minDate, maxDate, hitTime] = [minDate, maxDate, hitTime].map(Number);
   return (hitTime - minDate) / (maxDate - minDate);
 }
 
-function Answer() {
+function App() {
   const [state, setState] = useState(null);
   const [highlightedHit, setHighlightedHit] = useState(null);
 
@@ -57,6 +56,7 @@ function Answer() {
           groupedChronotope.push(
             state.chronotope.filter((h) => h.cluster_no === c.cluster_no)
           );
+          groupedChronotope[groupedChronotope.length - 1].cluster = c;
         });
       state.chronotope.forEach((h) => {
         const hitDate = new Date(h.hit_time);
@@ -75,30 +75,56 @@ function Answer() {
   return (
     <div>
       <h1>Chronotope Data for {state.map.name}</h1>
-      {groupedChronotope.map((clusterChronotope, idx) => (
-        <div key={idx} className="cluster-line">
-          {clusterChronotope.map((h, idx) => (
-            <span
+      <div style={{ display: "flex" }}>
+        <div style={{ flex: "none" }}>
+          {groupedChronotope.map((clusterChronotope, idx) => (
+            <div
               key={idx}
-              className={[
-                "dot",
-                h === highlightedHit ? "highlighted" : "",
-              ].join(" ")}
+              className="cluster-label"
               style={{
-                left: `${(
-                  computeRelativeDistance(
-                    minDate,
-                    maxDate,
-                    new Date(h.hit_time)
-                  ) * 100
-                ).toFixed(2)}%`,
-                background: `#${clusters[h.cluster_no].hex_color}`,
+                color: `#${clusterChronotope.cluster.hex_color}`,
               }}
-              onClick={() => setHighlightedHit(h)}
-            />
+            >
+              {clusterChronotope.cluster.name}
+              <div
+                className="group-bar"
+                style={{
+                  background: `#${
+                    groups[clusterChronotope.cluster.group_no].hex_color
+                  }`,
+                }}
+              />
+            </div>
           ))}
         </div>
-      ))}
+        <div style={{ flex: "1 0 0" }}>
+          {groupedChronotope.map((clusterChronotope, idx) => (
+            <div key={idx} className="cluster-line">
+              {clusterChronotope.map((h, idx) => (
+                <span
+                  key={idx}
+                  className={[
+                    "dot",
+                    h === highlightedHit ? "highlighted" : "",
+                  ].join(" ")}
+                  style={{
+                    left: `${(
+                      computeRelativeDistance(
+                        minDate,
+                        maxDate,
+                        new Date(h.hit_time)
+                      ) * 100
+                    ).toFixed(2)}%`,
+                    background: `#${clusters[h.cluster_no].hex_color}`,
+                  }}
+                  onClick={() => setHighlightedHit(h)}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+        <div style={{ flex: "none" }}></div>
+      </div>
       {highlightedHit && (
         <div>
           <div>Hit time: {new Date(highlightedHit.hit_time).toISOString()}</div>
@@ -130,4 +156,4 @@ function Answer() {
   );
 }
 
-export default Answer;
+export default App;

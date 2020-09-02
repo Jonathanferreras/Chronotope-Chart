@@ -47,14 +47,15 @@ The business requirements for this exercise is to have the React application ren
 
 An example of how the visualization should be rendered can be seen in the `chronotope_example.png` file that came with this document. Some notes about the example that is not a requirement in this exercise:
 
-- The example does render the axes and its labels (which is not necessary). The y-axis labels are actually the groups that each cluster belongs to, but each horizontal "slice" of the visualization is for a single cluster.
-- The example renders each data point with transparency to highlight multiple occurrencces at the same time by different users.
-- The example does not include the informational "tooltip" when clicking on a data point.
+## Example
+
+An example of a finished project can be found in `chronotope_example.png`.
+
+The example additionally renders cluster labels on the y-axis along with the colors of the groups that they belong to to emphasize the necessary ordering of the y-axis values. You are not required to render the labels themselves, but the ordering criterion must be satisfied.
+
+The example also renders what needs to be displayed when a data point is clicked. In this one, the left-most data point is highlighted inside the "Boston Foodies 2" cluster, and the "tooltip" is displayed on the lower left-hand corner.
 
 ![chronotope_example.png](chronotope_example.png)
-
-A simpler example that contains only everything you need to do for the exercise can be found in `chronotope_example2.png`.
-![chronotope_example2.png](chronotope_example2.png)
 
 ## Restrictions
 

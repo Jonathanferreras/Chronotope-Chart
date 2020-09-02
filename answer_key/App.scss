@@ -17,3 +17,18 @@
     box-shadow: 0 0 2px 4px rgba(0, 255, 0, 0.75);
   }
 }
+
+.cluster-label {
+  line-height: 16px;
+  font-size: 12px;
+  position: relative;
+  padding-left: 10px;
+}
+
+.group-bar {
+  width: 8px;
+  height: 16px;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
