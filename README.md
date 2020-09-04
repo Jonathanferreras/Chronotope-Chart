@@ -45,7 +45,9 @@ The business requirements for this exercise is to have the React application ren
   - The name of the group in which it happened, this text should be colored by the group's `hex_color`.
 - You are free to write tests for this project but they are _not_ necessary. CRA equips this repository with a Jest test runner.
 
-An example of how the visualization should be rendered can be seen in the `chronotope_example.png` file that came with this document. Some notes about the example that is not a requirement in this exercise:
+## Delivery
+
+Once you are complete with the project, remove your `node_modules` folder, and zip up the entire solution with its source files and send it back to us. Note that delivering via email will sometimes fail due to email clients blocking JavaScript files from being sent (even if they are zipped up). In those cases, you can upload it to a Google Drive or Dropbox (or any storage hosting solution of your choice) and send us a public link to download it with your response email.
 
 ## Example
 
