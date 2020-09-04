@@ -5,7 +5,7 @@ import "./App.scss";
 function App() {
   // fetch map data
   // fetch groups data
-  // fetch clusters data
+  // fetch segments data
   // fetch chronotope data
 
   // render page

@@ -1,6 +1,6 @@
 import mapData from "./map.json";
 import groupsData from "./groups.json";
-import clustersData from "./clusters.json";
+import segmentsData from "./segments.json";
 import chronotopeData from "./chronotope.json";
 
 /**
@@ -19,8 +19,8 @@ export function fetchMap() {
   return delay(mapData);
 }
 
-export function fetchClusters() {
-  return delay(clustersData);
+export function fetchSegments() {
+  return delay(segmentsData);
 }
 
 export function fetchGroups() {

@@ -15,27 +15,27 @@ function App() {
     Promise.all([
       api.fetchMap(),
       api.fetchGroups(),
-      api.fetchClusters(),
+      api.fetchSegments(),
       api.fetchChronotopeData(),
     ]).then((data) => {
-      const [map, groups, clusters, chronotope] = data;
+      const [map, groups, segments, chronotope] = data;
       setState({
         map,
         groups,
-        clusters,
+        segments,
         chronotope,
       });
     });
   }, []);
 
   const {
-    clusters,
+    segments,
     groups,
     groupedChronotope,
     minDate,
     maxDate,
   } = useMemo(() => {
-    const clusters = {};
+    const segments = {};
     const groups = {};
     const groupedChronotope = [];
     let minDate, maxDate;
@@ -43,7 +43,7 @@ function App() {
       state.groups.forEach((g) => {
         groups[g.group_no] = g;
       });
-      state.clusters
+      state.segments
         .slice()
         .sort((a, b) => {
           return (
@@ -52,11 +52,11 @@ function App() {
           );
         })
         .forEach((c) => {
-          clusters[c.cluster_no] = c;
+          segments[c.segment_no] = c;
           groupedChronotope.push(
-            state.chronotope.filter((h) => h.cluster_no === c.cluster_no)
+            state.chronotope.filter((h) => h.segment_no === c.segment_no)
           );
-          groupedChronotope[groupedChronotope.length - 1].cluster = c;
+          groupedChronotope[groupedChronotope.length - 1].segment = c;
         });
       state.chronotope.forEach((h) => {
         const hitDate = new Date(h.hit_time);
@@ -68,7 +68,7 @@ function App() {
         }
       });
     }
-    return { clusters, groups, groupedChronotope, minDate, maxDate };
+    return { segments, groups, groupedChronotope, minDate, maxDate };
   }, [state]);
 
   if (!state) return <div>Loading...</div>;
@@ -77,20 +77,20 @@ function App() {
       <h1>Chronotope Data for {state.map.name}</h1>
       <div style={{ display: "flex" }}>
         <div style={{ flex: "none" }}>
-          {groupedChronotope.map((clusterChronotope, idx) => (
+          {groupedChronotope.map((segmentChronotope, idx) => (
             <div
               key={idx}
-              className="cluster-label"
+              className="segment-label"
               style={{
-                color: `#${clusterChronotope.cluster.hex_color}`,
+                color: `#${segmentChronotope.segment.hex_color}`,
               }}
             >
-              {clusterChronotope.cluster.name}
+              {segmentChronotope.segment.name}
               <div
                 className="group-bar"
                 style={{
                   background: `#${
-                    groups[clusterChronotope.cluster.group_no].hex_color
+                    groups[segmentChronotope.segment.group_no].hex_color
                   }`,
                 }}
               />
@@ -98,9 +98,9 @@ function App() {
           ))}
         </div>
         <div style={{ flex: "1 0 0" }}>
-          {groupedChronotope.map((clusterChronotope, idx) => (
-            <div key={idx} className="cluster-line">
-              {clusterChronotope.map((h, idx) => (
+          {groupedChronotope.map((segmentChronotope, idx) => (
+            <div key={idx} className="segment-line">
+              {segmentChronotope.map((h, idx) => (
                 <span
                   key={idx}
                   className={[
@@ -115,7 +115,7 @@ function App() {
                         new Date(h.hit_time)
                       ) * 100
                     ).toFixed(2)}%`,
-                    background: `#${clusters[h.cluster_no].hex_color}`,
+                    background: `#${segments[h.segment_no].hex_color}`,
                   }}
                   onClick={() => setHighlightedHit(h)}
                 />
@@ -129,13 +129,13 @@ function App() {
         <div>
           <div>Hit time: {new Date(highlightedHit.hit_time).toISOString()}</div>
           <div>
-            Cluster:{" "}
+            Segment:{" "}
             <span
               style={{
-                color: `#${clusters[highlightedHit.cluster_no].hex_color}`,
+                color: `#${segments[highlightedHit.segment_no].hex_color}`,
               }}
             >
-              {clusters[highlightedHit.cluster_no].name}
+              {segments[highlightedHit.segment_no].name}
             </span>
           </div>
           <div>
@@ -143,11 +143,11 @@ function App() {
             <span
               style={{
                 color: `#${
-                  groups[clusters[highlightedHit.cluster_no].group_no].hex_color
+                  groups[segments[highlightedHit.segment_no].group_no].hex_color
                 }`,
               }}
             >
-              {groups[clusters[highlightedHit.cluster_no].group_no].name}
+              {groups[segments[highlightedHit.segment_no].group_no].name}
             </span>
           </div>
         </div>
