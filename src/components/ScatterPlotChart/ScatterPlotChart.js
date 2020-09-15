@@ -1,9 +1,11 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import * as d3 from 'd3';
-import { getGroupByGroupNumber, getSegmentBySegmentNumber, getSortedChronotope, getSortedSegments } from '../../utils/dataUtils';
+import { getSegmentBySegmentNumber, getSortedChronotope, getSortedSegments } from '../../utils/dataUtils';
+import { ChartToolTip } from '../ChartToolTip/ChartToolTip';
 
 export function ScatterPlotChart({data}) {
   const d3Container = useRef(null);
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     if(data && d3Container.current) {
@@ -35,16 +37,18 @@ export function ScatterPlotChart({data}) {
         .scale(yScale)
 
       const svg = d3.select(d3Container.current)
+      const dot = svg.selectAll("dot")
       
       // Add Scatter plots
-      svg
-        .selectAll("dot")
+      dot
         .data(sortedChronotope)
         .enter()
         .append("circle")
         .attr("r", 3.5)
         .attr("cx", c => xScale(new Date(c.hit_time)))
         .attr("cy", c => yScale(getSegmentBySegmentNumber(c.segment_no, segments).name))
+        .style("fill", c => `#${getSegmentBySegmentNumber(c.segment_no, segments).hex_color}`)
+        .on("click", d => setSelected(d.hit_time)) //TODO: Get click event on dots
 
       // Add Y - Axis
       svg
@@ -67,12 +71,18 @@ export function ScatterPlotChart({data}) {
     }
   })
 
+  console.log(selected)
+
   return (
-    <svg
-      width={1000}
-      height={800}
-      className="chart"
-      ref={d3Container}
-    />
+    <React.Fragment>
+      <svg
+        width={1000}
+        height={800}
+        className="chart"
+        ref={d3Container}
+      />
+      <ChartToolTip data={selected} />
+    </React.Fragment>
+
   )
 }

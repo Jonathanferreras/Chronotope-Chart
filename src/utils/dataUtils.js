@@ -16,9 +16,9 @@ export function getSortedSegments(segments, groups) {
     const segmentBGroup = getGroupByGroupNumber(b.group_no, groups);
 
     if (segmentAGroup.position === segmentBGroup.position) {
-      return a.position - b.position;
+      return  b.position - a.position;
     } else {
-      return segmentAGroup.position - segmentBGroup.position;
+      return  segmentBGroup.position - segmentAGroup.position;
     }
   });
 
