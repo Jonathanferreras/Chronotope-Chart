@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 import * as d3 from 'd3';
-import { getGroupByGroupNumber } from '../../utils/dataUtils';
+import { getGroupByGroupNumber, getSegmentBySegmentNumber, getSortedChronotope, getSortedSegments } from '../../utils/dataUtils';
 
 export function ScatterPlotChart({data}) {
   const d3Container = useRef(null);
@@ -8,29 +8,64 @@ export function ScatterPlotChart({data}) {
   useEffect(() => {
     if(data && d3Container.current) {
       const {groups, segments, chronotope} = data;
-      const svg = d3.select(d3Container.current);
+      const sortedChronotope = getSortedChronotope(chronotope); // X - axis
+      const sortedSegments = getSortedSegments(segments, groups); // Y - axis
 
-      // Y - axis
-      const sortedChronotope = chronotope.sort((a,b) => new Date(a.hit_time) - new Date(b.hit_time))
+      const chart = document.querySelector('.chart');
+      const width = chart.clientWidth;
+      const height = chart.clientHeight;
+      const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
-      // X - axis
-      const sortedSegments = segments.sort((a, b) => {
-        const segmentAGroup = getGroupByGroupNumber(a.group_no, groups);
-        const segmentBGroup = getGroupByGroupNumber(b.group_no, groups);
+      const xScale = d3
+        .scaleTime()
+        .domain(d3.extent(sortedChronotope, c => new Date(c.hit_time)))
+        .range([0, width - margin.right - margin.left])
 
-        if (segmentAGroup.position === segmentBGroup.position) {
-          return a.position - b.position;
-        } else {
-          return segmentAGroup.position - segmentBGroup.position;
-        }
-      })
+      const yScale = d3
+        .scaleBand()
+        .domain(sortedSegments.map(s => s.name))
+        .range([height - margin.top - margin.bottom, 0])
 
+      const xAxis = d3
+        .axisBottom()
+        .scale(xScale)
+
+      const yAxis = d3
+        .axisLeft()
+        .scale(yScale)
+
+      const svg = d3.select(d3Container.current)
+      
+      // Add Scatter plots
+      // svg
+      //   .selectAll("dot")
+      //   .data(sortedChronotope)
+      //   .enter()
+      //   .append("circle")
+      //   .attr("r", 3.5)
+      //   .attr("cx", c => new Date(c.hit_time))
+      //   .attr("cy", c => getSegmentBySegmentNumber(c.segment_no, segments).name)
+
+      // Add Y - Axis
+      svg
+        .append("g")
+        .attr("transform", "translate(50, 10)")
+        .call(yAxis)
+
+      // Add X - Axis
+      svg
+        .append("g")
+        .attr("transform", `translate(50, ${(height / 1.1 ) + 10})`)
+        .call(xAxis)
 
     }
   })
 
   return (
-    <svg 
+    <svg
+      width={1000}
+      height={800}
+      className="chart"
       ref={d3Container}
     />
   )
