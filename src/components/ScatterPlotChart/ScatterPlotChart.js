@@ -19,7 +19,7 @@ export function ScatterPlotChart({data}) {
       const xScale = d3
         .scaleTime()
         .domain(d3.extent(sortedChronotope, c => new Date(c.hit_time)))
-        .range([0, width - margin.right - margin.left])
+        .range([150, width - margin.right - margin.left])
 
       const yScale = d3
         .scaleBand()
@@ -37,19 +37,19 @@ export function ScatterPlotChart({data}) {
       const svg = d3.select(d3Container.current)
       
       // Add Scatter plots
-      // svg
-      //   .selectAll("dot")
-      //   .data(sortedChronotope)
-      //   .enter()
-      //   .append("circle")
-      //   .attr("r", 3.5)
-      //   .attr("cx", c => new Date(c.hit_time))
-      //   .attr("cy", c => getSegmentBySegmentNumber(c.segment_no, segments).name)
+      svg
+        .selectAll("dot")
+        .data(sortedChronotope)
+        .enter()
+        .append("circle")
+        .attr("r", 3.5)
+        .attr("cx", c => xScale(new Date(c.hit_time)))
+        .attr("cy", c => yScale(getSegmentBySegmentNumber(c.segment_no, segments).name))
 
       // Add Y - Axis
       svg
         .append("g")
-        .attr("transform", "translate(50, 10)")
+        .attr("transform", "translate(150, 10)")
         .call(yAxis)
 
       // Add X - Axis
@@ -57,6 +57,12 @@ export function ScatterPlotChart({data}) {
         .append("g")
         .attr("transform", `translate(50, ${(height / 1.1 ) + 10})`)
         .call(xAxis)
+        .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(90)")
+        .style("text-anchor", "start");
 
     }
   })
