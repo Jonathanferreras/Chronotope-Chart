@@ -1,16 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as api from "./api";
+import {Header, ScatterPlotChart, ChartToolTip, Loader} from './components';
 import "./App.scss";
 
 function App() {
-  // fetch map data
-  // fetch groups data
-  // fetch segments data
-  // fetch chronotope data
+  const [data, setData] = useState({
+    map: null,
+    groups: [],
+    segments: [],
+    chronotope: []
+  });
 
-  // render page
+  useEffect(() => {
+    async function fetchData() {
+      const map = await api.fetchMap();
+      const groups = await api.fetchGroups();
+      const segments = await api.fetchSegments();
+      const chronotope = await api.fetchChronotopeData();
 
-  return <div>Hello from Graphika!</div>;
+      setData({map, groups, segments, chronotope});
+    }
+
+    if(!data.map) {
+      fetchData();
+    }
+  });
+
+  const {map, groups, segments, chronotope} = data;
+
+  return (
+    <div className="app-container">
+      {map ? (
+        <React.Fragment>
+          <Header text={`Chronotope Data for ${map.name}`} />
+          <ScatterPlotChart 
+            data={{groups, segments, chronotope}}
+          />
+        </React.Fragment>
+      ) : (
+        <Loader />
+      )}
+    </div>
+  );
 }
+
+
 
 export default App;

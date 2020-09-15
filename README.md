@@ -64,7 +64,3 @@ The example also renders what needs to be displayed when a data point is clicked
 - You should only spend a max of 2 hours working on this.
 - You may not modify any code within `src/api`, or `src/index.js`.
 - You are free to modify existing or create any new (S)CSS files for styling purposes.
-
-## Internal Notes
-
-- A sample correct answer can be found within the `answer_key` directory, which contains the necessary code that can be replaced into the `src` directory to run the app with all the necessary requirements.
