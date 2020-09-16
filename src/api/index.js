@@ -9,8 +9,7 @@ import chronotopeData from "./chronotope.json";
  * @returns {Promise<T>}
  */
 function delay(value) {
-  const duration = 0;
-  // const duration = Math.round(Math.random() * 3) + 2;
+  const duration = Math.round(Math.random() * 3) + 2;
   return new Promise((resolve) =>
     window.setTimeout(resolve, duration * 1000, value)
   );

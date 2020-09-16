@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import * as api from "./api"
-import {Header, ScatterPlotChart, ChartToolTip, Loader} from './components'
+import {Header, ScatterPlotChart, Loader} from './components'
 import "./App.scss"
 
 function App() {

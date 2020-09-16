@@ -88,7 +88,7 @@ export function ScatterPlotChart({data}) {
         .call(g => g
           .selectAll("text")
           .style("text-anchor", "start")
-          .style("fill", name => getSegmentBySegmentName(name, segments).hex_color)
+          .style("fill", name => `#${getSegmentBySegmentName(name, segments).hex_color}`)
         )
 
       // Add X - Axis
