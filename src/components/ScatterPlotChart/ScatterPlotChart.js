@@ -1,40 +1,43 @@
-import React, {useRef, useEffect, useState} from 'react';
-import * as d3 from 'd3';
+import React, {useRef, useEffect, useState} from 'react'
+import * as d3 from 'd3'
 import { 
   getGroupByGroupNumber, 
+  getSegmentBySegmentName, 
   getSegmentBySegmentNumber, 
   getSortedChronotope, 
-  getSortedSegments } from '../../utils/dataUtils';
-import { ChartToolTip } from '../ChartToolTip/ChartToolTip';
+  getSortedSegments } from '../../utils/dataUtils'
+import { ChartToolTip } from '../ChartToolTip/ChartToolTip'
 
 export function ScatterPlotChart({data}) {
-  const d3Container = useRef(null);
-  const [selected, setSelected] = useState(null);
+  const d3Container = useRef(null)
+  const [selected, setSelected] = useState(null)
 
   useEffect(() => {
-    if(data && d3Container.current) {
-      const {groups, segments, chronotope} = data;
-      const sortedChronotope = getSortedChronotope(chronotope); // X - axis
-      const sortedSegments = getSortedSegments(segments, groups); // Y - axis
+    if(data && d3Container.current && !selected) {
+      const {groups, segments, chronotope} = data
+      const sortedChronotope = getSortedChronotope(chronotope) // X - axis
+      const sortedSegments = getSortedSegments(segments, groups) // Y - axis
 
       const handleDataPointClick = (dataPoint) => {
-        const {segment_no} = dataPoint;
-        const segment = getSegmentBySegmentNumber(segment_no, sortedSegments);
-        const group = getGroupByGroupNumber(segment.group_no, groups);
+        const {segment_no} = dataPoint
+        const segment = getSegmentBySegmentNumber(segment_no, sortedSegments)
+        const group = getGroupByGroupNumber(segment.group_no, groups)
 
         setSelected({
           hitTime: dataPoint.hit_time,
           cluster: segment.name,
-          clusterColor: segment.hex_color,
           group: group.name,
-          groupColor: group.hex_color
-        });
+          colors: {
+            groupColor: group.hex_color,
+            clusterColor: segment.hex_color
+          }
+        })
       }
 
-      const chart = document.querySelector('.chart');
-      const width = chart.clientWidth;
-      const height = chart.clientHeight;
-      const margin = { top: 20, right: 20, bottom: 10, left: 40 };
+      const chart = document.querySelector('.chart')
+      const width = chart.clientWidth
+      const height = chart.clientHeight
+      const margin = { top: 20, right: 20, bottom: 10, left: 40 }
 
       const xScale = d3
         .scaleTime()
@@ -62,23 +65,36 @@ export function ScatterPlotChart({data}) {
         .data(sortedChronotope)
         .enter()
         .append("circle")
-        .attr("transform", "translate(10, 15)")
+        .attr("transform", "translate(0, 15)")
         .attr("r", 3.5)
         .attr("cx", c => xScale(new Date(c.hit_time)))
         .attr("cy", c => yScale(getSegmentBySegmentNumber(c.segment_no, segments).name))
         .style("fill", c => `#${getSegmentBySegmentNumber(c.segment_no, segments).hex_color}`)
-        .on("click", (e, dataPoint) => handleDataPointClick(dataPoint))
+        .on("click", (event, dataPoint) => {
+          // TODO: handle highlighting on data point click
+          d3
+            .select(event.currentTarget)
+            .style('fill', 'green')
+          handleDataPointClick(dataPoint)
+        })
 
       // Add Y - Axis
       svg
         .append("g")
-        .attr("transform", "translate(150, 10)")
+        .attr("transform", "translate(10, 10)")
         .call(yAxis)
+        .call(g => g.select(".domain").remove())
+        .call(g => g.selectAll("line").remove())
+        .call(g => g
+          .selectAll("text")
+          .style("text-anchor", "start")
+          .style("fill", name => getSegmentBySegmentName(name, segments).hex_color)
+        )
 
       // Add X - Axis
       svg
         .append("g")
-        .attr("transform", `translate(50, ${(height / 1 ) + 10})`)
+        .attr("transform", `translate(0, ${height})`)
         .call(xAxis)
     }
   })
@@ -93,5 +109,5 @@ export function ScatterPlotChart({data}) {
       />
       {selected && <ChartToolTip data={selected} />}
     </React.Fragment>
-  );
+  )
 }

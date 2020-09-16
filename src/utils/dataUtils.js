@@ -1,9 +1,9 @@
 export function getGroupByGroupNumber(groupNumber, groups) {
-  return groups.filter(group => groupNumber === group.group_no)[0];
+  return groups.filter(group => groupNumber === group.group_no)[0]
 }
 
 export function getSegmentBySegmentNumber(segmentNumber, segments) {
-  return segments.filter(segment => segmentNumber === segment.segment_no)[0];
+  return segments.filter(segment => segmentNumber === segment.segment_no)[0]
 }
 
 export function getSortedChronotope(chronotope) {
@@ -12,14 +12,23 @@ export function getSortedChronotope(chronotope) {
 
 export function getSortedSegments(segments, groups) {
   return segments.sort((a, b) => {
-    const segmentAGroup = getGroupByGroupNumber(a.group_no, groups);
-    const segmentBGroup = getGroupByGroupNumber(b.group_no, groups);
+    const segmentAGroup = getGroupByGroupNumber(a.group_no, groups)
+    const segmentBGroup = getGroupByGroupNumber(b.group_no, groups)
 
     if (segmentAGroup.position === segmentBGroup.position) {
-      return  b.position - a.position;
+      return  b.position - a.position
     } else {
-      return  segmentBGroup.position - segmentAGroup.position;
+      return  segmentBGroup.position - segmentAGroup.position
     }
-  });
+  })
+}
 
+
+export function getGroupByGroupName(groupName, groups) {
+  console.log("getGroupByGroupName -> groupName", groupName)
+  return groups.filter(group => groupName === group.name)[0]
+}
+
+export function getSegmentBySegmentName(segmentName, segments) {
+  return segments.filter(segment => segmentName === segment.name)[0]
 }

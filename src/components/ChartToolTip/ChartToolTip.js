@@ -1,7 +1,8 @@
 import React from 'react'
 
 export function ChartToolTip({ data }) {
-  const {hitTime, cluster, clusterColor, group, groupColor} = data;
+  const {hitTime, cluster, group, colors} = data
+  const {groupColor, clusterColor} = colors
   
   return (
     <div>
