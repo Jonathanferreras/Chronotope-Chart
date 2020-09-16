@@ -72,9 +72,9 @@ export function ScatterPlotChart({data}) {
         .style("fill", c => `#${getSegmentBySegmentNumber(c.segment_no, segments).hex_color}`)
         .on("click", (event, dataPoint) => {
           // TODO: handle highlighting on data point click
-          d3
-            .select(event.currentTarget)
-            .style('fill', 'green')
+          // d3
+          //   .select(event.currentTarget)
+          //   .style('fill', 'green')
           handleDataPointClick(dataPoint)
         })
 
