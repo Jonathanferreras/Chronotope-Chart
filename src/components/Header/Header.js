@@ -2,8 +2,8 @@ import React from 'react'
 
 export function Header({text}) {
   return (
-    <h1>
+    <h2>
       {text}
-    </h1>
+    </h2>
   )
 }
