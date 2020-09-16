@@ -1,12 +1,11 @@
 import React, {useRef, useEffect, useState} from 'react'
 import * as d3 from 'd3'
+import { ChartToolTip } from '../ChartToolTip/ChartToolTip'
 import { 
   getGroupByGroupNumber, 
-  getSegmentBySegmentName, 
   getSegmentBySegmentNumber, 
   getSortedChronotope, 
   getSortedSegments } from '../../utils/dataUtils'
-import { ChartToolTip } from '../ChartToolTip/ChartToolTip'
 
 export function ScatterPlotChart({data}) {
   const d3Container = useRef(null)
@@ -15,8 +14,8 @@ export function ScatterPlotChart({data}) {
   useEffect(() => {
     if(data && d3Container.current && !selected) {
       const {groups, segments, chronotope} = data
-      const sortedChronotope = getSortedChronotope(chronotope) // X - axis
-      const sortedSegments = getSortedSegments(segments, groups) // Y - axis
+      const sortedChronotope = getSortedChronotope(chronotope)
+      const sortedSegments = getSortedSegments(segments, groups)
 
       const handleDataPointClick = (dataPoint) => {
         const {segment_no} = dataPoint
@@ -60,7 +59,6 @@ export function ScatterPlotChart({data}) {
       const svg = d3.select(d3Container.current)
       const dot = svg.selectAll("dot")
       
-      // Add Scatter plots
       dot
         .data(sortedChronotope)
         .enter()
@@ -68,17 +66,10 @@ export function ScatterPlotChart({data}) {
         .attr("transform", "translate(0, 15)")
         .attr("r", 3.5)
         .attr("cx", c => xScale(new Date(c.hit_time)))
-        .attr("cy", c => yScale(getSegmentBySegmentNumber(c.segment_no, segments).name))
-        .style("fill", c => `#${getSegmentBySegmentNumber(c.segment_no, segments).hex_color}`)
-        .on("click", (event, dataPoint) => {
-          // TODO: handle highlighting on data point click
-          // d3
-          //   .select(event.currentTarget)
-          //   .style('fill', 'green')
-          handleDataPointClick(dataPoint)
-        })
+        .attr("cy", c => yScale(getSegmentBySegmentNumber(c.segment_no, sortedSegments).name))
+        .style("fill", c => `#${getSegmentBySegmentNumber(c.segment_no, sortedSegments).hex_color}`)
+        .on("click", (event, dataPoint) => handleDataPointClick(dataPoint))
 
-      // Add Y - Axis
       svg
         .append("g")
         .attr("transform", "translate(10, 10)")
@@ -88,10 +79,9 @@ export function ScatterPlotChart({data}) {
         .call(g => g
           .selectAll("text")
           .style("text-anchor", "start")
-          .style("fill", name => `#${getSegmentBySegmentName(name, segments).hex_color}`)
+          .style("fill", (name, i) => `#${sortedSegments[i].hex_color}`)
         )
 
-      // Add X - Axis
       svg
         .append("g")
         .attr("transform", `translate(0, ${height})`)
